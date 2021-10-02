@@ -3,6 +3,8 @@ const baseHref = window.location.pathname.split('/')[1] === 'hb' ?
   '/hb/' + window.location.pathname.split('/')[2]
   : '';
 
+console.log('baseHrf: ' + baseHref);
+
 export const environment = {
   serverTarget: require('../../../package.json').version,
   production: true,
