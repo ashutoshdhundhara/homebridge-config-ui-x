@@ -1,16 +1,21 @@
+
+const baseHref = window.location.pathname.split('/')[1] === 'hb' ?
+  '/hb/' + window.location.pathname.split('/')[2]
+  : '';
+
 export const environment = {
   production: false,
   serverTarget: require('../../../package.json').version,
   api: {
-    base: `/hb/guddi/api`,
+    base: `${baseHref}/api`,
     socket: `${(window.location.protocol) === 'http:' ? 'ws://' : 'wss://'}${window.location.host}`,
     origin: window.location.origin,
-    socketPath: `/hb/guddi/socket.io`,
+    socketPath: `${baseHref}/socket.io`,
   },
   jwt: {
     tokenKey: 'access_token',
     allowedDomains: [document.location.host],
-    disallowedRoutes: [`${window.location.protocol}//${document.location.host}/hb/guddi/api/auth/login`],
+    disallowedRoutes: [`${window.location.protocol}//${document.location.host}${baseHref}/api/auth/login`],
   },
   apiHttpOptions: {
     withCredentials: true,
