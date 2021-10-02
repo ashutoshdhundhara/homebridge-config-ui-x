@@ -10,7 +10,7 @@ export class SpaFilter implements ExceptionFilter {
     const req = ctx.getRequest();
     const res = ctx.getResponse();
 
-    if (req.raw.originalUrl.startsWith('/api/') || req.raw.originalUrl.startsWith('/socket.io') || req.raw.originalUrl.startsWith('/assets')) {
+    if (req.raw.originalUrl.startsWith('/hb/guddi/api/') || req.raw.originalUrl.startsWith('/hb/guddi/socket.io') || req.raw.originalUrl.startsWith('/hb/guddi/assets')) {
       return res.code(404).send('Not Found');
     }
 
