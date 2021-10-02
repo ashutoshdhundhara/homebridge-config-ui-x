@@ -74,7 +74,10 @@ import { StatusModule } from './modules/status/status.module';
     },
     {
       provide: APP_BASE_HREF,
-      useFactory: () => window.location.pathname.split('/')[1] === 'hb' ? '/hb/' + window.location.pathname.split('/')[2] + '/' : '',
+      useFactory: () => {
+        console.log(window.location.pathname);
+        return window.location.pathname.split('/')[1] === 'hb' ? '/hb/' + window.location.pathname.split('/')[2] + '/' : '';
+      },
     },
   ],
   bootstrap: [AppComponent],
