@@ -15,6 +15,7 @@ import { AuthModule } from './core/auth/auth.module';
 import { ServerModule } from './modules/server/server.module';
 import { PlatformToolsModule } from './modules/platform-tools/platform-tools.module';
 import { BackupModule } from './modules/backup/backup.module';
+import { APP_BASE_HREF } from '@angular/common';
 
 @Module({
   imports: [
@@ -38,6 +39,12 @@ import { BackupModule } from './modules/backup/backup.module';
   providers: [
     AppService,
     AppGateway,
+    {
+      provide: APP_BASE_HREF,
+      useFactory: () => {
+        return window.location.pathname.split('/')[1] === 'hb' ? '/hb/' + window.location.pathname.split('/')[2] + '/' : '';
+      },
+    }
   ],
 })
 export class AppModule { }
