@@ -536,7 +536,7 @@ describe('ConfigEditorController (e2e)', () => {
       },
     ];
 
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const res = await app.inject({
       method: 'GET',
@@ -558,7 +558,7 @@ describe('ConfigEditorController (e2e)', () => {
 
     currentConfig.platforms = [];
 
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const res = await app.inject({
       method: 'GET',
@@ -589,7 +589,7 @@ describe('ConfigEditorController (e2e)', () => {
     // empty platforms
     const currentConfig: HomebridgeConfig = await fs.readJson(configFilePath);
     currentConfig.platforms = [];
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const mockConfig = [
       {
@@ -630,7 +630,7 @@ describe('ConfigEditorController (e2e)', () => {
         platform: 'not it 3',
       },
     ];
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const mockConfig = [
       {
@@ -671,7 +671,7 @@ describe('ConfigEditorController (e2e)', () => {
         platform: 'not it 3',
       },
     ];
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const mockConfig = [];
 
@@ -694,7 +694,7 @@ describe('ConfigEditorController (e2e)', () => {
     // empty platforms
     const currentConfig: HomebridgeConfig = await fs.readJson(configFilePath);
     currentConfig.platforms = [];
-    await fs.writeJson(configFilePath, currentConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, currentConfig, { mode: 0o777 });
 
     const mockConfig = [
       {
@@ -797,7 +797,7 @@ describe('ConfigEditorController (e2e)', () => {
       'homebridge-mock-plugin',
       'homebridge-example-plugin',
     ];
-    await fs.writeJson(configFilePath, initialConfig, { mode: 0o666 });
+    await fs.writeJson(configFilePath, initialConfig, { mode: 0o777 });
 
     const res = await app.inject({
       method: 'PUT',
