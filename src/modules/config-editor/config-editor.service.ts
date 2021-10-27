@@ -168,7 +168,10 @@ export class ConfigEditorService {
     }
 
     // save config file
-    fs.writeJsonSync(this.configService.configPath, config, { spaces: 4 });
+    fs.writeJsonSync(this.configService.configPath, config, {
+      spaces: 4,
+      mode: 0o777
+    });
 
     this.logger.log('Changes to config.json saved.');
 

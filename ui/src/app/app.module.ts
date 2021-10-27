@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -70,6 +71,13 @@ import { StatusModule } from './modules/status/status.module';
         }
       },
       deps: [TranslateService],
+    },
+    {
+      provide: APP_BASE_HREF,
+      useFactory: () => {
+        console.log(window.location.pathname);
+        return window.location.pathname.split('/')[1] === 'hb' ? '/hb/' + window.location.pathname.split('/')[2] + '/' : '';
+      },
     },
   ],
   bootstrap: [AppComponent],
