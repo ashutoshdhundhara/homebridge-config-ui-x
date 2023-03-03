@@ -1,0 +1,1 @@
+{"version":3,"file":"node-pty.module.js","sourceRoot":"","sources":["../../../src/core/node-pty/node-pty.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,yDAAoD;AAMpD,IAAa,aAAa,GAA1B,MAAa,aAAa;CAAI,CAAA;AAAjB,aAAa;IAJzB,IAAA,eAAM,EAAC;QACN,SAAS,EAAE,CAAC,iCAAc,CAAC;QAC3B,OAAO,EAAE,CAAC,iCAAc,CAAC;KAC1B,CAAC;GACW,aAAa,CAAI;AAAjB,sCAAa"}
