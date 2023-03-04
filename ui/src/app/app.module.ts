@@ -76,7 +76,7 @@ import { LoginModule } from './modules/login/login.module';
         {
             provide: APP_BASE_HREF,
             useFactory: () => window.location.pathname,
-        }
+        },
     ],
     bootstrap: [AppComponent],
 })

@@ -553,7 +553,10 @@ class HomebridgeServiceHelper {
                 }
             }
             if (saveRequired) {
-                await fs.writeJSON(process.env.UIX_CONFIG_PATH, currentConfig, { spaces: 4 });
+                await fs.writeJSON(process.env.UIX_CONFIG_PATH, currentConfig, {
+                    spaces: 4,
+                    mode: 0o777
+                });
             }
         }
         catch (e) {
@@ -576,7 +579,10 @@ class HomebridgeServiceHelper {
             platforms: [
                 await this.createDefaultUiConfig(),
             ],
-        }, { spaces: 4 });
+        }, {
+            spaces: 4,
+            mode: 0o777
+        });
         await this.chownPath(process.env.UIX_CONFIG_PATH);
     }
     async generateBridgeConfig() {

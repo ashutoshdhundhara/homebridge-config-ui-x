@@ -26006,7 +26006,10 @@ let ConfigEditorService = class ConfigEditorService {
                 this.logger.warn('Could not create a backup of the config.json file to', this.configService.configBackupPath, e.message);
             }
         }
-        fs.writeJsonSync(this.configService.configPath, config, { spaces: 4 });
+        fs.writeJsonSync(this.configService.configPath, config, {
+            spaces: 4,
+            mode: 0o777
+        });
         this.logger.log('Changes to config.json saved.');
         const configCopy = JSON.parse(JSON.stringify(config));
         this.configService.parseConfig(configCopy);
