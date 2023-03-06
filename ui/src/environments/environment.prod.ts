@@ -1,4 +1,4 @@
-const baseHref = window.location.pathname.replace(/\/$/, "");
+const baseHref = window.location.pathname.replace(/\/$/, '');
 
 export const environment = {
   serverTarget: require('../../../package.json').version,
@@ -15,7 +15,9 @@ export const environment = {
     allowedDomains: [document.location.host],
     disallowedRoutes: [`${window.location.protocol}//${document.location.host}${baseHref}/api/auth/login`],
   },
-  apiHttpOptions: {},
+  apiHttpOptions: {
+    withCredentials: true,
+  },
   owm: {
     appid: 'fec67b55f7f74deaa28df89ba6a60821',
   },
