@@ -1,27 +1,14 @@
 {
-  "name": "homebridge-config-ui-x",
+  "name": "@ashutoshdhundhara/homebridge-config-ui-x",
   "displayName": "Homebridge UI",
   "version": "4.50.2",
   "description": "A web based management, configuration and control platform for Homebridge",
   "license": "MIT",
-  "author": "oznu <dev@oz.nu>",
+  "author": "ashutoshdhundhara@yahoo.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/oznu/homebridge-config-ui-x.git"
+    "url": "https://github.com/ashutoshdhundhara/homebridge-config-ui-x.git"
   },
-  "bugs": {
-    "url": "https://github.com/oznu/homebridge-config-ui-x/issues"
-  },
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/oznu"
-    },
-    {
-      "type": "paypal",
-      "url": "https://paypal.me/oznu"
-    }
-  ],
   "main": "./dist/index.js",
   "bin": {
     "homebridge-config-ui-x": "./dist/bin/standalone.js",
@@ -30,6 +17,9 @@
   "engines": {
     "node": ">=14.15.0",
     "homebridge": ">=0.4.22"
+  },
+  "publishConfig": {
+    "@ashutoshdhundhara:registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "watch": "concurrently \"npm run watch:ui\" \"npm run watch:server\"",
