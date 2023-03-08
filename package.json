@@ -40,7 +40,7 @@
     "upgrade-install": "./upgrade-install.sh"
   },
   "dependencies": {
-    "@ashutoshdhundhara/hap-client": "^1.9.0",
+    "@ashutoshdhundhara/hap-client": "latest",
     "@fastify/helmet": "9.1.0",
     "@fastify/multipart": "7.1.0",
     "@fastify/static": "6.5.0",
