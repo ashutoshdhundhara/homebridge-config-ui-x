@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as NodeCache from 'node-cache';
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { HapClient, ServiceType } from '@oznu/hap-client';
+import { HapClient, ServiceType } from '@ashutoshdhundhara/hap-client';
 
 import { ConfigService } from '../../core/config/config.service';
 import { Logger } from '../../core/logger/logger.service';

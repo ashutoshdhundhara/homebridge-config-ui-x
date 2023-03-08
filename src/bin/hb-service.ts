@@ -423,7 +423,7 @@ export class HomebridgeServiceHelper {
     if (
       this.homebridgePackage &&
       process.env.UIX_STRICT_PLUGIN_RESOLUTION === '1' &&
-      semver.gte(this.homebridgePackage.version, '1.4.1-beta.1', { includePrerelease: true })
+      semver.gte(this.homebridgePackage.version, '1.4.1-beta.1')
     ) {
       if (!this.homebridgeOpts.includes('--strict-plugin-resolution')) {
         this.homebridgeOpts.push('--strict-plugin-resolution');
@@ -787,7 +787,10 @@ export class HomebridgeServiceHelper {
       }
 
       if (saveRequired) {
-        await fs.writeJSON(process.env.UIX_CONFIG_PATH, currentConfig, { spaces: 4 });
+        await fs.writeJSON(process.env.UIX_CONFIG_PATH, currentConfig, {
+          spaces: 4,
+          mode: 0o777
+        });
       }
 
     } catch (e) {
@@ -817,7 +820,10 @@ export class HomebridgeServiceHelper {
       platforms: [
         await this.createDefaultUiConfig(),
       ],
-    }, { spaces: 4 });
+    }, {
+      spaces: 4,
+      mode: 0o777
+    });
     await this.chownPath(process.env.UIX_CONFIG_PATH);
   }
 
@@ -1045,7 +1051,7 @@ export class HomebridgeServiceHelper {
         }
 
         // check if keep orphans should be enabled, only for Homebridge v1.0.2 and later
-        if (this.homebridgePackage && semver.gte(this.homebridgePackage.version, '1.0.2', { includePrerelease: true })) {
+        if (this.homebridgePackage && semver.gte(this.homebridgePackage.version, '1.0.2')) {
           if (homebridgeStartupOptions.keepOrphans && !this.homebridgeOpts.includes('-K')) {
             this.homebridgeOpts.push('-K');
           }

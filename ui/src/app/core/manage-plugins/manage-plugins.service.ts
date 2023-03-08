@@ -190,7 +190,7 @@ export class ManagePluginsService {
 
   private async checkNodeVersion(plugin): Promise<boolean> {
     if (plugin.engines && plugin.engines.node) {
-      if (gte(this.$settings.env.nodeVersion, minVersion(plugin.engines.node), { includePrerelease: true })) {
+      if (gte(this.$settings.env.nodeVersion, minVersion(plugin.engines.node))) {
         return true;
       }
 

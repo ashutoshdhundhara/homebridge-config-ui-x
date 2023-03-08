@@ -1,0 +1,68 @@
+/// <reference types="node" />
+import { EventEmitter } from 'events';
+import { HttpService } from '@nestjs/axios';
+import { HomebridgePlugin } from './types';
+import { HomebridgePluginVersions, HomebridgePluginUiMetadata, PluginAlias } from './types';
+import { Logger } from '../../core/logger/logger.service';
+import { ConfigService } from '../../core/config/config.service';
+import { NodePtyService } from '../../core/node-pty/node-pty.service';
+import { HomebridgeUpdateActionDto, PluginActionDto } from './plugins.dto';
+export declare class PluginsService {
+    private httpService;
+    private nodePtyService;
+    private logger;
+    private configService;
+    private static readonly PLUGIN_IDENTIFIER_PATTERN;
+    private npm;
+    private paths;
+    private installedPlugins;
+    private npmPackage;
+    private verifiedPlugins;
+    private miscSchemas;
+    private npmPluginCache;
+    private pluginAliasCache;
+    private verifiedPluginsRetryTimeout;
+    private searchResultBlacklist;
+    private pluginAliasHints;
+    constructor(httpService: HttpService, nodePtyService: NodePtyService, logger: Logger, configService: ConfigService);
+    getInstalledPlugins(): Promise<HomebridgePlugin[]>;
+    getOutOfDatePlugins(): Promise<HomebridgePlugin[]>;
+    lookupPlugin(pluginName: string): Promise<HomebridgePlugin>;
+    getAvailablePluginVersions(pluginName: string): Promise<HomebridgePluginVersions>;
+    searchNpmRegistry(query: string): Promise<HomebridgePlugin[]>;
+    searchNpmRegistrySingle(query: string): Promise<HomebridgePlugin[]>;
+    managePlugin(action: 'install' | 'uninstall', pluginAction: PluginActionDto, client: EventEmitter): Promise<boolean>;
+    getHomebridgePackage(): Promise<HomebridgePlugin>;
+    updateHomebridgePackage(homebridgeUpdateAction: HomebridgeUpdateActionDto, client: EventEmitter): Promise<boolean>;
+    getNpmPackage(): Promise<HomebridgePlugin>;
+    isPluginBundleAvailable(pluginAction: PluginActionDto): Promise<boolean>;
+    doPluginBundleUpdate(pluginAction: PluginActionDto, client: EventEmitter): Promise<boolean>;
+    isUiUpdateBundleAvailable(pluginAction: PluginActionDto): Promise<boolean>;
+    doUiBundleUpdate(pluginAction: PluginActionDto, client: EventEmitter): Promise<void>;
+    updateSelfOffline(client: EventEmitter): Promise<void>;
+    getPluginConfigSchema(pluginName: string): Promise<any>;
+    getPluginChangeLog(pluginName: string): Promise<{
+        changelog: string;
+    }>;
+    getPluginRelease(pluginName: string): Promise<{
+        name: any;
+        changelog: any;
+    }>;
+    getPluginAlias(pluginName: string): Promise<PluginAlias>;
+    getPluginUiMetadata(pluginName: string): Promise<HomebridgePluginUiMetadata>;
+    private getDisabledPlugins;
+    private getInstalledScopedModules;
+    private getInstalledModules;
+    private isScopedPlugin;
+    private getNpmPath;
+    private getBasePaths;
+    private getNpmPrefixToSearchPaths;
+    private parsePackageJson;
+    private getPluginFromNpm;
+    getNpmModuleLatestVersion(npmModuleName: string): Promise<string>;
+    private runNpmCommand;
+    private ensureCustomPluginDirExists;
+    private removeSynologyMetadata;
+    private cleanNpmCache;
+    private loadVerifiedPluginsList;
+}

@@ -6,7 +6,7 @@ import * as NodeCache from 'node-cache';
 import * as child_process from 'child_process';
 import * as tcpPortUsed from 'tcp-port-used';
 import { Injectable, NotFoundException, BadRequestException, ServiceUnavailableException, InternalServerErrorException } from '@nestjs/common';
-import { Categories } from '@oznu/hap-client/dist/hap-types';
+import { Categories } from '@ashutoshdhundhara/hap-client/dist/hap-types';
 
 import { Logger } from '../../core/logger/logger.service';
 import { ConfigService, HomebridgeConfig } from '../../core/config/config.service';
