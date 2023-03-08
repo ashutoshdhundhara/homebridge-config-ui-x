@@ -3,7 +3,7 @@ import { EventEmitter } from 'events';
 import { ConfigService } from '../../../core/config/config.service';
 import { Logger } from '../../../core/logger/logger.service';
 import { NodePtyService } from '../../../core/node-pty/node-pty.service';
-export declare type TermSize = {
+export type TermSize = {
     cols: number;
     rows: number;
 };

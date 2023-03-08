@@ -2,7 +2,7 @@
 import { EventEmitter } from 'events';
 import { ConfigService } from '../../core/config/config.service';
 import { NodePtyService } from '../../core/node-pty/node-pty.service';
-export declare type LogTermSize = {
+export type LogTermSize = {
     cols: number;
     rows: number;
 };

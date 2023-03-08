@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ServiceType } from '@oznu/hap-client';
+import { ServiceType } from '@ashutoshdhundhara/hap-client';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';

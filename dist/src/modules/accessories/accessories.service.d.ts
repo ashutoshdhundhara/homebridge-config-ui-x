@@ -1,5 +1,5 @@
 import * as NodeCache from 'node-cache';
-import { HapClient, ServiceType } from '@oznu/hap-client';
+import { HapClient, ServiceType } from '@ashutoshdhundhara/hap-client';
 import { ConfigService } from '../../core/config/config.service';
 import { Logger } from '../../core/logger/logger.service';
 export declare class AccessoriesService {

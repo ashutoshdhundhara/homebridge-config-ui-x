@@ -45,7 +45,7 @@ let ConfigService = class ConfigService {
         this.recommendChildBridges = (os.totalmem() > 2e+9);
         this.runningOnRaspberryPi = false;
         this.startupScript = path.resolve(this.storagePath, 'startup.sh');
-        this.dockerOfflineUpdate = this.runningInDocker && semver.satisfies(process.env.CONFIG_UI_VERSION, '>=4.6.2 <=4.44.1', { includePrerelease: true });
+        this.dockerOfflineUpdate = this.runningInDocker && semver.satisfies(process.env.CONFIG_UI_VERSION, '>=4.6.2 <=4.44.1');
         this.package = fs.readJsonSync(path.resolve(process.env.UIX_BASE_PATH, 'package.json'));
         this.setupWizardComplete = true;
         this.customWallpaperPath = path.resolve(this.storagePath, 'ui-wallpaper.jpg');

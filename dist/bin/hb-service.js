@@ -20,6 +20,9 @@ const linux_1 = require("./platforms/linux");
 const darwin_1 = require("./platforms/darwin");
 const freebsd_1 = require("./platforms/freebsd");
 class HomebridgeServiceHelper {
+    get logPath() {
+        return path.resolve(this.storagePath, 'homebridge.log');
+    }
     constructor() {
         this.selfPath = __filename;
         this.serviceName = 'Homebridge';
@@ -150,9 +153,6 @@ class HomebridgeServiceHelper {
                 process.exit(1);
             }
         }
-    }
-    get logPath() {
-        return path.resolve(this.storagePath, 'homebridge.log');
     }
     logger(msg, type = 'info') {
         if (this.action === 'run') {
@@ -302,7 +302,7 @@ class HomebridgeServiceHelper {
         }
         if (this.homebridgePackage &&
             process.env.UIX_STRICT_PLUGIN_RESOLUTION === '1' &&
-            semver.gte(this.homebridgePackage.version, '1.4.1-beta.1', { includePrerelease: true })) {
+            semver.gte(this.homebridgePackage.version, '1.4.1-beta.1')) {
             if (!this.homebridgeOpts.includes('--strict-plugin-resolution')) {
                 this.homebridgeOpts.push('--strict-plugin-resolution');
             }
@@ -735,7 +735,7 @@ class HomebridgeServiceHelper {
                 if (homebridgeStartupOptions.debugMode && !this.homebridgeOpts.includes('-D')) {
                     this.homebridgeOpts.push('-D');
                 }
-                if (this.homebridgePackage && semver.gte(this.homebridgePackage.version, '1.0.2', { includePrerelease: true })) {
+                if (this.homebridgePackage && semver.gte(this.homebridgePackage.version, '1.0.2')) {
                     if (homebridgeStartupOptions.keepOrphans && !this.homebridgeOpts.includes('-K')) {
                         this.homebridgeOpts.push('-K');
                     }

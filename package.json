@@ -40,6 +40,7 @@
     "upgrade-install": "./upgrade-install.sh"
   },
   "dependencies": {
+    "@ashutoshdhundhara/hap-client": "^1.9.0",
     "@fastify/helmet": "9.1.0",
     "@fastify/multipart": "7.1.0",
     "@fastify/static": "6.5.0",
@@ -53,7 +54,6 @@
     "@nestjs/platform-socket.io": "9.0.8",
     "@nestjs/swagger": "6.0.5",
     "@nestjs/websockets": "9.0.8",
-    "@oznu/hap-client": "ashutoshdhundhara/hap-client#bifrost",
     "axios": "0.27.2",
     "class-transformer": "0.5.1",
     "class-validator": "0.13.2",

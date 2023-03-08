@@ -323,7 +323,7 @@ let PluginsService = PluginsService_1 = class PluginsService {
         const homebridgeVersion = semver.parse(homebridge.installedVersion);
         if (homebridgeVersion.major === 1 &&
             homebridgeVersion.minor === 2 &&
-            semver.gt(homebridge.installedVersion, homebridge.latestVersion, { includePrerelease: true })) {
+            semver.gt(homebridge.installedVersion, homebridge.latestVersion)) {
             const versions = await this.getAvailablePluginVersions('homebridge');
             if (versions.tags['release-1.2.x'] && semver.gt(versions.tags['release-1.2.x'], homebridge.installedVersion)) {
                 homebridge.updateAvailable = true;
@@ -331,9 +331,9 @@ let PluginsService = PluginsService_1 = class PluginsService {
             }
         }
         if (homebridgeVersion.prerelease[0] === 'beta' &&
-            semver.gt(homebridge.installedVersion, homebridge.latestVersion, { includePrerelease: true })) {
+            semver.gt(homebridge.installedVersion, homebridge.latestVersion)) {
             const versions = await this.getAvailablePluginVersions('homebridge');
-            if (versions.tags['beta'] && semver.gt(versions.tags['beta'], homebridge.installedVersion, { includePrerelease: true })) {
+            if (versions.tags['beta'] && semver.gt(versions.tags['beta'], homebridge.installedVersion)) {
                 homebridge.updateAvailable = true;
                 homebridge.latestVersion = versions.tags['beta'];
             }
